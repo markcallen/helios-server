@@ -137,6 +137,7 @@ INSTALLED_APPS = (
     'helios_auth',
     'helios',
     'server_ui',
+    'rauth',
 )
 
 ##
@@ -196,8 +197,8 @@ HELIOS_VOTERS_EMAIL = True
 HELIOS_PRIVATE_DEFAULT = False
 
 # authentication systems enabled
-#AUTH_ENABLED_AUTH_SYSTEMS = ['password','facebook','twitter', 'google', 'yahoo']
-AUTH_ENABLED_AUTH_SYSTEMS = get_from_env('AUTH_ENABLED_AUTH_SYSTEMS', 'google').split(",")
+AUTH_ENABLED_AUTH_SYSTEMS = ['password','facebook','twitter', 'google', 'yahoo', 'nodejs']
+#AUTH_ENABLED_AUTH_SYSTEMS = get_from_env('AUTH_ENABLED_AUTH_SYSTEMS', 'google').split(",")
 AUTH_DEFAULT_AUTH_SYSTEM = get_from_env('AUTH_DEFAULT_AUTH_SYSTEM', None)
 
 # google
@@ -260,3 +261,11 @@ djcelery.setup_loader()
 # for testing
 TEST_RUNNER = 'djcelery.contrib.test_runner.CeleryTestSuiteRunner'
 # this effectively does CELERY_ALWAYS_EAGER = True
+
+CUSTOM_CSS = get_from_env('CUSTOM_CSS', '/static/custom.css')
+
+NODEJS_CLIENT_ID = '5af82678e7a321b0'
+NODEJS_CLIENT_SECRET = 'NPWPekmKabSv'
+NODEJS_APP_NAME = 'sampleoauth2'
+NODEJS_AUTHORIZE_URL = 'http://localhost:8888/dialog/authorize'
+NODEJS_TOKEN_URL = 'http://localhost:8888/oauth/token'
