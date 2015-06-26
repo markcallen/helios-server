@@ -27,7 +27,7 @@ def get_flow(redirect_url=None):
         client_secret=settings.NODEJS_CLIENT_SECRET,
         name=settings.NODEJS_APP_NAME,
         authorize_url=settings.NODEJS_AUTHORIZE_URL,
-        access_token_url=settings.NODEJS_AUTHORIZE_URL,
+        access_token_url=settings.NODEJS_TOKEN_URL,
         base_url=settings.NODEJS_BASE_URL)
 
 def get_auth_url(request, redirect_url):
