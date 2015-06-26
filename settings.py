@@ -264,8 +264,10 @@ TEST_RUNNER = 'djcelery.contrib.test_runner.CeleryTestSuiteRunner'
 
 CUSTOM_CSS = get_from_env('CUSTOM_CSS', '/static/custom.css')
 
-NODEJS_CLIENT_ID = '5af82678e7a321b0'
-NODEJS_CLIENT_SECRET = 'NPWPekmKabSv'
-NODEJS_APP_NAME = 'sampleoauth2'
-NODEJS_AUTHORIZE_URL = 'http://localhost:8888/dialog/authorize'
-NODEJS_TOKEN_URL = 'http://localhost:8888/oauth/token'
+# For NODEJS authentication
+NODEJS_CLIENT_ID = get_from_env('NODEJS_CLIENT_ID', '5af82678e7a321b0')
+NODEJS_CLIENT_SECRET = get_from_env(NODEJS_CLIENT_SECRET, 'NPWPekmKabSv')
+NODEJS_APP_NAME = get_from_env('NODEJS_APP_NAME', 'helios01')
+NODEJS_AUTHORIZE_URL = get_from_env('NODEJS_AUTHORIZE_URL', 'http://localhost:8888/dialog/authorize')
+NODEJS_TOKEN_URL = get_from_env('NODEJS_TOKEN_URL', 'http://localhost:8888/oauth/token')
+NODEJS_BASE_URL = get_from_env('NODEJS_BASE_URL', 'http://localhost:8888')

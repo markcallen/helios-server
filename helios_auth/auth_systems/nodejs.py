@@ -26,9 +26,9 @@ def get_flow(redirect_url=None):
         client_id=settings.NODEJS_CLIENT_ID,
         client_secret=settings.NODEJS_CLIENT_SECRET,
         name=settings.NODEJS_APP_NAME,
-        authorize_url='http://localhost:8888/dialog/authorize',
-        access_token_url='http://localhost:8888/oauth/token',
-        base_url='http://localhost:8888/')
+        authorize_url=settings.NODEJS_AUTHORIZE_URL,
+        access_token_url=settings.NODEJS_AUTHORIZE_URL,
+        base_url=settings.NODEJS_BASE_URL)
 
 def get_auth_url(request, redirect_url):
   print "get_auth_url", redirect_url
@@ -54,7 +54,7 @@ def get_user_info_after_auth(request):
 
   response = response.json()
   oauth2_session = flow.get_session(response['access_token'])
-  user = oauth2_session.get('http://localhost:8888/api/account').json()
+  user = oauth2_session.get(settings.NODEJS_BASE_URL + '/api/account').json()
 
   email = user['email']
   name = user['firstname'] + " " + user['lastname']
